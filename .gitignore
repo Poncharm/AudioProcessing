@@ -1,0 +1,6 @@
+
+/Sounds/Cut sounds 10 sec
+/Sounds/Cut sounds 5 sec
+ffmpeg.exe
+ffplay.exe
+ffprobe.exe
