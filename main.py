@@ -8,22 +8,22 @@ def normalize_audio(audio_segment):
 def add_fade_effects(audio_segment, fade_duration=1000):
     return audio_segment.fade_in(fade_duration).fade_out(fade_duration)
 
-# def ensure_mono(audio_segment):
-#     if audio_segment.channels > 1:
-#         return audio_segment.set_channels(1)
-#     return audio_segment
-#
-# def set_sample_rate(audio_segment, sample_rate=44100):
-#     return audio_segment.set_frame_rate(sample_rate)
-#
-# def apply_compression(audio_segment):
-#     return effects.compress_dynamic_range(audio_segment)
-#
-# def remove_dc_offset(audio_segment):
-#     return effects.normalize(audio_segment)
-#
-# def set_bit_depth(audio_segment, bit_depth=16):
-#     return audio_segment.set_sample_width(bit_depth // 8)
+def ensure_mono(audio_segment):
+    if audio_segment.channels > 1:
+        return audio_segment.set_channels(1)
+    return audio_segment
+
+def set_sample_rate(audio_segment, sample_rate=44100):
+    return audio_segment.set_frame_rate(sample_rate)
+
+def apply_compression(audio_segment):
+    return effects.compress_dynamic_range(audio_segment)
+
+def remove_dc_offset(audio_segment):
+    return effects.normalize(audio_segment)
+
+def set_bit_depth(audio_segment, bit_depth=16):
+    return audio_segment.set_sample_width(bit_depth // 8)
 
 def process_audio_files(input_folder, output_folder, fade_duration=1000):
     # Ensure output folder exists
@@ -49,15 +49,15 @@ def process_audio_files(input_folder, output_folder, fade_duration=1000):
             #
             # # Normalize the audio
             # normalized_audio = normalize_audio(compressed_audio)
-
-            # Set bit depth
+            #
+            # # Set bit depth
             # bit_depth_audio = set_bit_depth(normalized_audio)
             bit_depth_audio = audio
 
             # Calculate start and end for 7 second clip around the middle
             half_duration = len(bit_depth_audio) / 2
-            start = half_duration - 6000
-            end = half_duration + 6000
+            start = half_duration - 3500
+            end = half_duration + 3500
             clipped_audio = bit_depth_audio[start:end]
 
             # Apply fade effects
@@ -68,8 +68,8 @@ def process_audio_files(input_folder, output_folder, fade_duration=1000):
             final_audio.export(output_filepath, format="mp3")
 
 # Define input and output folders
-input_folder = "Sounds/Processed sounds/relax_natural"
-output_folder = "Sounds/Cut sounds 10 sec/relax_natural"
+input_folder = "Sounds/Processed sounds/classic"
+output_folder = "Sounds/Cut sounds 5 sec/classic"
 
 # Process the audio files
 process_audio_files(input_folder, output_folder)

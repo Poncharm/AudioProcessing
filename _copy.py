@@ -39,12 +39,13 @@ input_folders = [
     "Sounds/Cut sounds 10 sec/neutral",
     "Sounds/Cut sounds 10 sec/relax_natural",
     "Sounds/Cut sounds 10 sec/relax_synthesized",
-    "Sounds/Cut sounds 10 sec/stress"
+    "Sounds/Cut sounds 10 sec/stress",
+    "Sounds/Cut sounds 10 sec/classic"
 ]
-num_files_per_folder = [33, 17, 17, 33]
+num_files_per_folder = [7, 7, 7, 7, 7]
 
 # Define output folder
-output_folder = "Sounds/Selected feedback sounds 10 sec"
+output_folder = "Sounds/Selected 35 feedback sounds 10 sec"
 
 # Select and copy files
 select_and_copy_files(input_folders, output_folder, num_files_per_folder)
